@@ -12,114 +12,106 @@
             font-family: "微软雅黑", sans-serif;
         }
         body {
-            width: 100%;
+            background: #fff;
         }
-
-        /* 顶部导航栏 */
+        /* 导航栏 */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 200px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
+            padding: 16px 180px;
+            border-bottom: 1px solid #eee;
         }
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
             font-size: 28px;
             font-weight: bold;
+            gap: 8px;
         }
-        .nav-list {
-            display: flex;
-            gap: 30px;
-            font-size: 18px;
-        }
-        .nav-list a {
+        .nav a {
+            margin-left: 26px;
             text-decoration: none;
-            color: #333333;
+            font-size: 17px;
+            color: #333;
         }
-        .nav-list a.active {
-            color: #dd3333;
+        .nav a:first-of-type {
+            color: #c82423;
         }
-
-        /* 轮播横幅区域 */
+        /* 轮播横幅 */
         .banner {
             width: 100%;
-            height: 550px;
-            background-color: #cccccc;
+            height: 540px;
+            background: #cccccc;
             position: relative;
         }
-        .banner-text {
+        .text-box {
             position: absolute;
-            left: 150px;
-            top: 220px;
-            color: #ffffff;
+            left: 140px;
+            top: 200px;
+            color: white;
         }
-        .banner-text h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
+        .text-box h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
         }
-        .banner-text p {
+        .text-box p {
             font-size: 20px;
         }
-        .arrow-left, .arrow-right {
+        .left-btn, .right-btn {
             position: absolute;
             top: 50%;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.35);
             color: #fff;
             text-align: center;
-            line-height: 40px;
+            line-height: 42px;
             font-size: 20px;
             cursor: pointer;
         }
-        .arrow-left {
-            left: 20px;
+        .left-btn {
+            left: 22px;
         }
-        .arrow-right {
-            right: 20px;
+        .right-btn {
+            right: 22px;
         }
-        .dots {
+        .circle-dots {
             position: absolute;
-            bottom: 20px;
+            bottom: 24px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 13px;
+            height: 13px;
             border-radius: 50%;
-            background: #ffffff;
+            background: #fff;
             opacity: 0.5;
         }
         .dot.active {
             opacity: 1;
         }
-
-        /* 正文标题区域 */
-        .section-title {
+        /* 标题区域 */
+        .title-area {
+            padding: 45px 0;
             text-align: center;
-            font-size: 36px;
-            padding: 40px 0;
-            background-color: #ffffff;
+            font-size: 35px;
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 顶部导航 -->
     <header>
         <div class="logo">
             <span>🦊</span>
             <span>疯狂动物城</span>
         </div>
-        <div class="nav-list">
-            <a href=" " class="active">首页</a >
+        <div class="nav">
+            <a href=" ">首页</a >
             <a href="#">作品</a >
             <a href="#">角色</a >
             <a href="#">联系我们</a >
@@ -127,15 +119,15 @@
         </div>
     </header>
 
-    <!-- 轮播大图 -->
+    <!-- 大图轮播区域 -->
     <div class="banner">
-        <div class="arrow-left">&lt;</div>
-        <div class="arrow-right">&gt;</div>
-        <div class="banner-text">
+        <div class="left-btn">&lt;</div>
+        <div class="right-btn">&gt;</div>
+        <div class="text-box">
             <h2>欢迎来到疯狂动物城</h2>
             <p>一个哺乳动物共存的乌托邦</p >
         </div>
-        <div class="dots">
+        <div class="circle-dots">
             <div class="dot active"></div>
             <div class="dot"></div>
             <div class="dot"></div>
@@ -143,8 +135,8 @@
         </div>
     </div>
 
-    <!-- 板块标题 -->
-    <div class="section-title">
+    <!-- 下方大标题 -->
+    <div class="title-area">
         关于《疯狂动物城》
     </div>
 </body>
