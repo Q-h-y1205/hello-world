@@ -14,6 +14,7 @@
         body {
             background: #fff;
         }
+
         /* 导航栏 */
         header {
             display: flex;
@@ -34,10 +35,12 @@
             text-decoration: none;
             font-size: 17px;
             color: #333;
+            cursor: pointer;
         }
-        .nav a:first-of-type {
+        .nav a.active {
             color: #c82423;
         }
+
         /* 轮播横幅 */
         .banner {
             width: 100%;
@@ -71,12 +74,8 @@
             font-size: 20px;
             cursor: pointer;
         }
-        .left-btn {
-            left: 22px;
-        }
-        .right-btn {
-            right: 22px;
-        }
+        .left-btn {left: 22px;}
+        .right-btn {right: 22px;}
         .circle-dots {
             position: absolute;
             bottom: 24px;
@@ -92,14 +91,22 @@
             background: #fff;
             opacity: 0.5;
         }
-        .dot.active {
-            opacity: 1;
+        .dot.active {opacity: 1;}
+
+        /* 页面内容区域 */
+        .page-content {
+            padding: 45px 180px;
         }
-        /* 标题区域 */
-        .title-area {
-            padding: 45px 0;
+        .page {
+            display: none; /* 默认全部隐藏 */
+        }
+        .page.show {
+            display: block; /* 当前页面显示 */
+        }
+        .page h2 {
             text-align: center;
             font-size: 35px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -111,15 +118,15 @@
             <span>疯狂动物城</span>
         </div>
         <div class="nav">
-            <a href=" ">首页</a >
-            <a href="#">作品</a >
-            <a href="#">角色</a >
-            <a href="#">联系我们</a >
-            <a href="#">登录</a >
+            <a class="nav-item active" data-page="home">首页</a >
+            <a class="nav-item" data-page="works">作品</a >
+            <a class="nav-item" data-page="role">角色</a >
+            <a class="nav-item" data-page="contact">联系我们</a >
+            <a>登录</a >
         </div>
     </header>
 
-    <!-- 大图轮播区域 -->
+    <!-- 大图轮播 -->
     <div class="banner">
         <div class="left-btn">&lt;</div>
         <div class="right-btn">&gt;</div>
@@ -135,9 +142,51 @@
         </div>
     </div>
 
-    <!-- 下方大标题 -->
-    <div class="title-area">
-        关于《疯狂动物城》
+    <!-- 多页面内容 -->
+    <div class="page-content">
+        <!-- 首页 -->
+        <div id="home" class="page show">
+            <h2>关于《疯狂动物城》</h2>
+            <p>疯狂动物城是一座独一无二的现代动物都市。在这里，食肉动物和食草动物和平共处。兔子朱迪从小梦想成为一名警察，她冲破偏见，和狐狸尼克一起侦破大案。</p >
+        </div>
+
+        <!-- 作品页 -->
+        <div id="works" class="page">
+            <h2>影视作品</h2>
+            <p>《疯狂动物城》正片、番外短片、衍生动画剧集全部收录。</p >
+        </div>
+
+        <!-- 角色页 -->
+        <div id="role" class="page">
+            <h2>主要角色</h2>
+            <p>兔子朱迪、狐狸尼克、树懒闪电、牛局长等经典角色介绍。</p >
+        </div>
+
+        <!-- 联系我们页 -->
+        <div id="contact" class="page">
+            <h2>联系我们</h2>
+            <p>邮箱：service@zootopia.com<br>电话：010-12345678</p >
+        </div>
     </div>
+
+<script>
+    // 获取所有导航按钮和页面
+    let navItems = document.querySelectorAll('.nav-item');
+    let pages = document.querySelectorAll('.page');
+
+    navItems.forEach(item=>{
+        item.onclick = function(){
+            // 1. 切换导航高亮
+            navItems.forEach(nav=>nav.classList.remove('active'));
+            this.classList.add('active');
+
+            // 2. 切换对应页面
+            let targetId = this.getAttribute('data-page');
+            pages.forEach(p=>p.classList.remove('show'));
+            document.getElementById(targetId).classList.add('show');
+        }
+    })
+</script>
+
 </body>
 </html>
